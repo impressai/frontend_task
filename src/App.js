@@ -4,7 +4,6 @@ import { exampleAction } from './actions/exampleAction';
 import ExampleComponent from './components/ExampleComponent';
 
 function App(props) {
- debugger
   return (
     <div>
       <ExampleComponent {...props}/>

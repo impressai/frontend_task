@@ -4,7 +4,7 @@ import { combineReducers } from 'redux';
 import userReducer from './userReducer';
 
 const rootReducer = combineReducers({
-  user: userReducer, // Use your actual reducers here
+  userState: userReducer, // Use your actual reducers here
 });
 
 export default rootReducer;
