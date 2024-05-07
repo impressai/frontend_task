@@ -1,15 +1,18 @@
 // src/mocks/handlers.js
-import { http, HttpResponse } from 'msw'
-import { generateRandomName } from './utils'
- 
+import { http, HttpResponse } from "msw";
+import initiateDB from "../db/initDB";
+
+const { addUser, getUsers } = initiateDB();
+
 export const handlers = [
-  // Intercept "GET https://example.com/user" requests...
-  http.get('https://example.com/user', () => {
-    // ...and respond to them using this JSON response.
-    return HttpResponse.json({
-      id: Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000,
-      firstName: generateRandomName(),
-      lastName: generateRandomName(),
-    })
+  http.get("http://example.com/users", async () => {
+    const users = await getUsers();
+    return HttpResponse.json(users);
   }),
-]
+
+  http.post("http://example.com/user", async ({ request }) => {
+    const newUser = await request.json();
+    const resp = await addUser(newUser);
+    return HttpResponse.json(resp);
+  }),
+];

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { exampleAction } from './actions/exampleAction';
+import { addUser, getUsers } from './actions/exampleAction';
 import ExampleComponent from './components/ExampleComponent';
 
 function App(props) {
@@ -16,7 +16,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  exampleAction
+  getUsers,
+  addUser
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
