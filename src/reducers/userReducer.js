@@ -1,17 +1,17 @@
-
-
-
 const initialState = {
-    user: null,
-    error: null,
-    isAuthenticated: false
+  users: [],
 };
 
 const userReducer = (state = initialState, action) => {
-    switch (action.type) {
-        default:
-            return state;
-    }
+  switch (action.type) {
+    case "LIST_USERS":
+      return {
+        ...state,
+        users: action.payload,
+      };
+    default:
+      return state;
+  }
 };
 
 export default userReducer;

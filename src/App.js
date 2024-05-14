@@ -1,23 +1,25 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { exampleAction } from './actions/exampleAction';
-import ExampleComponent from './components/ExampleComponent';
+import React from "react";
+import "./assets/css/style.css";
+import { connect } from "react-redux";
+import "../node_modules/antd/dist/antd.css";
+import MainComponent from "./components/mainComponent";
+import { addUser, getUsers } from "./actions/userActions";
 
 function App(props) {
- debugger
   return (
     <div>
-      <ExampleComponent {...props}/>
+      <MainComponent {...props} />
     </div>
   );
 }
 
-const mapStateToProps = state => ({
-  ...state
+const mapStateToProps = (state) => ({
+  ...state,
 });
 
 const mapDispatchToProps = {
-  exampleAction
+  getUsers,
+  addUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
