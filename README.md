@@ -34,7 +34,8 @@
 	- Ensure that both the name and email fields are not left empty and contain valid values before submission.
 	- Implement validation for the email field to ensure that only valid email addresses are accepted.
 
-![image](https://github.com/arunnair018/hiring_task/assets/28563570/94e8a6bb-d937-4ed6-9c95-c3a8511231d8)
+![image](https://github.com/impressai/frontend_task/assets/28563570/27ae4e34-0ccb-488f-9215-e95842322b97)
+
 
 
 
@@ -46,14 +47,16 @@
 - Fix Existing Issues: 
 	- Form Reset on Submission: Ensure that after submitting the form, the values in the name and email input fields are cleared.
 
-![image](https://github.com/arunnair018/hiring_task/assets/28563570/82585500-50b7-441a-be07-c4f4ce68099b)
+![image](https://github.com/impressai/frontend_task/assets/28563570/65eda298-0f5b-4923-bbcc-45f7caf1b758)
+
 
 
 ### Level 3
 - Add delete functionality:
 	- Delete for Each User: Implement a delete feature for each user entry
 
-![image](https://github.com/arunnair018/hiring_task/assets/28563570/d32fd22b-e99f-4dc3-9069-3d1bfc1140be)
+![image](https://github.com/impressai/frontend_task/assets/28563570/c3da4f55-6e89-47cc-bbde-35e3c20f80f6)
+
 
 
 
@@ -61,7 +64,8 @@
 - Add edit functionality:
 	- Edit for Each User: Implement a edit feature for each user entry
 
-![image](https://github.com/arunnair018/hiring_task/assets/28563570/d2a63b3a-ff24-437a-94d5-847fcef29457)
+![image](https://github.com/impressai/frontend_task/assets/28563570/67fd80fc-c022-41b3-8f01-de11de046379)
+
 
 
 ### Bonus level
