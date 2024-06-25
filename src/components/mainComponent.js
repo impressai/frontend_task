@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Table, Button, Input, Form } from 'antd';
+import { Table, Button, Input, Form, Modal } from 'antd';
 import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
 
 function MainComponent(props) {
   const { getUsers, userState, addUser, deleteUser, updateUser } = props;
   const [form] = Form.useForm();
+  const [editForm] = Form.useForm();
+  const [editingUser, setEditingUser] = useState(null);
 
   useEffect(() => {
     getUsers();
@@ -17,6 +19,16 @@ function MainComponent(props) {
 
   const handleDelete = (id) => {
     deleteUser(id);
+  };
+
+  const handleEdit = (record) => {
+    setEditingUser(record);
+    editForm.setFieldsValue(record);
+  };
+
+  const handleUpdate = (values) => {
+    updateUser(editingUser.id, values);
+    setEditingUser(null);
   };
 
   const columns = [
@@ -40,10 +52,19 @@ function MainComponent(props) {
       key: 'actions',
       render: (_, record) => (
         <>
-          <Button type="primary" icon={<EditOutlined />} style={{ marginRight: 8 }}>
+          <Button 
+            type="primary" 
+            icon={<EditOutlined />} 
+            style={{ marginRight: 8 }}
+            onClick={() => handleEdit(record)}
+          >
             Edit
           </Button>
-          <Button type="danger" icon={<DeleteOutlined />} onClick={() => handleDelete(record.id)}>
+          <Button 
+            danger 
+            icon={<DeleteOutlined />} 
+            onClick={() => handleDelete(record.id)}
+          >
             Delete
           </Button>
         </>
@@ -77,6 +98,33 @@ function MainComponent(props) {
       </Form>
 
       <Table columns={columns} dataSource={userState.users} rowKey="id" />
+
+      <Modal
+        title="Edit User"
+        visible={!!editingUser}
+        onOk={() => editForm.submit()}
+        onCancel={() => setEditingUser(null)}
+      >
+        <Form form={editForm} onFinish={handleUpdate} layout="vertical">
+          <Form.Item
+            name="name"
+            label="Name"
+            rules={[{ required: true, message: 'Please input the name!' }]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="email"
+            label="Email"
+            rules={[
+              { required: true, message: 'Please input the email!' },
+              { type: 'email', message: 'Please enter a valid email!' }
+            ]}
+          >
+            <Input />
+          </Form.Item>
+        </Form>
+      </Modal>
     </div>
   );
 }
