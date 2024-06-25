@@ -1,4 +1,3 @@
-// src/mocks/handlers.js
 import { http, HttpResponse } from "msw";
 import initiateDB from "../db/initDB";
 

@@ -1,5 +1,4 @@
 import React from "react";
-
 const SimpleTable = ({ dataSource, onDelete, onEdit }) => {
   return (
     <div className="table-container">

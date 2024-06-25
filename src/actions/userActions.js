@@ -1,5 +1,3 @@
-
-
 export const getUsers = () => async dispatch => {
   try {
     const response = await fetch('http://example.com/users')
