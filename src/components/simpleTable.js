@@ -1,22 +1,29 @@
-import { React } from "react";
+import React from "react";
 
 const SimpleTable = ({ dataSource }) => {
   return (
-    <div>
+    <div className="table-container">
       {dataSource.length ? (
-        <>
-          {dataSource.map((item, index) => {
-            return (
-              <div key={index}>
-                <div>Id: {item.id}</div>
-                <div>Name: {item.name}</div>
-                <div>Email: {item.email}</div>
-              </div>
-            );
-          })}
-        </>
+        <table className="user-table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            {dataSource.map((item) => (
+              <tr key={item.id}>
+                <td>{item.id}</td>
+                <td>{item.name}</td>
+                <td>{item.email}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       ) : (
-        "No user data"
+        <p>No user data</p>
       )}
     </div>
   );
