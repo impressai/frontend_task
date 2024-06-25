@@ -1,6 +1,6 @@
 import React from "react";
 
-const SimpleTable = ({ dataSource }) => {
+const SimpleTable = ({ dataSource, onDelete, onEdit }) => {
   return (
     <div className="table-container">
       {dataSource.length ? (
@@ -10,6 +10,7 @@ const SimpleTable = ({ dataSource }) => {
               <th>Id</th>
               <th>Name</th>
               <th>Email</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -18,6 +19,10 @@ const SimpleTable = ({ dataSource }) => {
                 <td>{item.id}</td>
                 <td>{item.name}</td>
                 <td>{item.email}</td>
+                <td>
+                  <button onClick={() => onEdit(item)}>Edit</button>
+                  <button onClick={() => onDelete(item.id)}>Delete</button>
+                </td>
               </tr>
             ))}
           </tbody>
