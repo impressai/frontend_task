@@ -2,18 +2,27 @@ import { React } from "react";
 
 const SimpleTable = ({ dataSource }) => {
   return (
-    <div>
+    <div className="form">
       {dataSource.length ? (
         <>
-          {dataSource.map((item, index) => {
-            return (
-              <div key={index}>
-                <div>Id: {item.id}</div>
-                <div>Name: {item.name}</div>
-                <div>Email: {item.email}</div>
-              </div>
-            );
-          })}
+          <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {dataSource.map((item,index) => (
+          <tr key={index}>
+            <td>{item.id}</td>
+            <td>{item.name}</td>
+            <td>{item.email}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
         </>
       ) : (
         "No user data"

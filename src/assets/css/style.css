@@ -1,0 +1,17 @@
+.form{
+    display: flex;
+
+    justify-content: center;
+
+}
+.line-break{
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    justify-content: center;
+    margin-left: 30%;
+    margin-right: 30%;
+
+
+   
+}

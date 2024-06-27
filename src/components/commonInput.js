@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import '../assets/css/style.css'
 
 const InputHandler = ({ onSubmit, editMode = false }) => {
   const [name, setName] = useState("");
@@ -7,11 +8,16 @@ const InputHandler = ({ onSubmit, editMode = false }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name || !email) return;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailRegex.test(email)){
+      alert("enter valid email addresss")
+      return
+    }
     onSubmit({ name, email });
   };
 
   return (
-    <div className="header-box">
+    <div className="header-box form line-break">
       <input
         type="text"
         placeholder="Name"
@@ -26,7 +32,7 @@ const InputHandler = ({ onSubmit, editMode = false }) => {
           setEmail(e.target.value);
         }}
       />
-      <button type="primary">
+      <button type="primary" onClick={handleSubmit}>
         {!!editMode ? "Edit user" : "Add user"}
       </button>
     </div>

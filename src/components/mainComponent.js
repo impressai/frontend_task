@@ -13,7 +13,7 @@ function MainComponent(props) {
   }, []);
 
   return (
-    <div id="main-container-wrapper">
+    <div id="main-container-wrapper" className="header-box">
       <InputHandler onSubmit={handleSubmit} />
       <SimpleTable dataSource={userState.users} />
     </div>
