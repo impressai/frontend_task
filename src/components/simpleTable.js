@@ -1,28 +1,57 @@
 import { React } from "react";
+import { Table, Space, Button } from "antd";
 
-const SimpleTable = ({ dataSource }) => {
+
+
+const SimpleTable = ({ dataSource, onDelete, onEdit }) => {
+
+  const handelDelete = (id) => {
+    onDelete(id);
+
+
+  }
+  const handleEdit = (data) => {
+    onEdit(data)
+  }
+
+  const columns = [
+    {
+      title: 'Id',
+      dataIndex: 'id',
+      key: 'id',
+    },
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+    },
+    {
+      title: 'Email',
+      dataIndex: 'email',
+      key: 'email',
+    },
+    {
+      title: 'Action',
+      key: 'action',
+      render: (_, data) => (
+        <Space size="middle">
+          <Button onClick={() => {
+            handelDelete(data.id)
+          }} type="primary" danger>Delete</Button>
+          <Button type="primary" onClick={() => handleEdit(data)}>Edit</Button>
+        </Space>
+
+      ),
+
+
+    },
+
+  ];
   return (
     <div className="form">
       {dataSource.length ? (
         <>
-          <table border="1">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Email</th>
-        </tr>
-      </thead>
-      <tbody>
-        {dataSource.map((item,index) => (
-          <tr key={index}>
-            <td>{item.id}</td>
-            <td>{item.name}</td>
-            <td>{item.email}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+          <Table columns={columns} dataSource={dataSource} />
         </>
       ) : (
         "No user data"
