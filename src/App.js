@@ -3,7 +3,7 @@ import "./assets/css/style.css";
 import { connect } from "react-redux";
 import "../node_modules/antd/dist/antd.css";
 import MainComponent from "./components/mainComponent";
-import { addUser, getUsers } from "./actions/userActions";
+import { addUser, getUsers,deleteUser, editUser } from "./actions/userActions";
 
 function App(props) {
   return (
@@ -20,6 +20,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   getUsers,
   addUser,
+  // added deleteUser and editUser to mapDispatchToProps
+  deleteUser,
+  editUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

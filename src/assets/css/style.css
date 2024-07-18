@@ -1,0 +1,17 @@
+/* Form container styles */
+#main-container-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .header-box > form {
+    width: 100%;
+    display: flex;
+    margin: 2rem 0rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+  }
